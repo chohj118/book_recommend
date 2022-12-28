@@ -7,3 +7,6 @@ st.set_page_config(
     page_title='이book 어때?',
     layout='wide'
 )
+
+st.header('도서추천시스템')
+st.subheader('추천')
