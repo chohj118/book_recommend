@@ -10,3 +10,7 @@ st.set_page_config(
 
 st.header('도서추천시스템')
 st.subheader('추천')
+
+df = pd.read_csv('data/token.csv')
+
+st.dataframe(df)
