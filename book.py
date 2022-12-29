@@ -134,5 +134,5 @@ st.dataframe(df[['상품명','top_topic','topic_words']])
 
 # countplot 시각화
 fig, ax = plt.subplots(figsize=(20,10))
-sns.countplot(df[df['관리분류']=='에세이'], x='top_topic').set_title('에세이 분야 토픽 분포');
+ax.bar(df[df['관리분류']=='에세이'], x='top_topic');
 st.pyplot(fig)
