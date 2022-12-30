@@ -124,7 +124,6 @@ df['top_topic'] = 0
 df['topic_dist'] = 0
 df['topic_words'] = 0
 
-@st.cache
 for i in tqdm(range(len(model.docs))):
     df["topic_dist"][i] = model.docs[i].get_topics(top_n=4)
     df['top_topic'][i] = model.docs[i].get_topics()[0][0]
