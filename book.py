@@ -112,12 +112,12 @@ class TopicModeling :
         return score, perplexity
     
 # 트레이닝
-lda = TopicModeling(df, 20)
-model = lda.LDA()
-lda.train(model)
-len(model.used_vocabs)
-lda.result(model)
-lda.get_coherence(model)
+# lda = TopicModeling(df, 20)
+# model = lda.LDA()
+# lda.train(model)
+# len(model.used_vocabs)
+# lda.result(model)
+# lda.get_coherence(model)
 
 # 토픽 관련 항목 추가
 # df['top_topic'] = 0
