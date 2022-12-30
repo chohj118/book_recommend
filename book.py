@@ -130,7 +130,7 @@ lda.get_coherence(model)
 #     res = model.get_topic_words(df['top_topic'][i], top_n=5)
 #     df["topic_words"][i] = ' '.join(w for w, p in res)
     
-st.dataframe(df[['상품명','top_topic','topic_words']])
+# st.dataframe(df[['상품명','top_topic','topic_words']])
 
 # countplot 시각화
 # fig, ax = plt.subplots(figsize=(20,10))
