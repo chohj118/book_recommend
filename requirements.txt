@@ -1,0 +1,10 @@
+pandas
+numpy
+streamlit
+matplotlib == 3.6.2
+seaborn == 0.12.1
+tomotopy
+sys
+logging
+tqdm
+koreanize_matplotlib
