@@ -137,3 +137,6 @@ df['설명'] = df["설명"].str.replace('[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z ]', "", r
 # sns.countplot(df[df['관리분류']=='에세이'], x='top_topic').set_title('에세이 분야 토픽 분포');
 # st.pyplot(fig)
 
+fig, ax = plt.subplots(figsize=(20,10))
+ax.hist(df['관리분류'], bins=20)
+st.pyplot()
