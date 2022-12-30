@@ -120,20 +120,20 @@ lda.result(model)
 lda.get_coherence(model)
 
 # 토픽 관련 항목 추가
-df['top_topic'] = 0
-df['topic_dist'] = 0
-df['topic_words'] = 0
+# df['top_topic'] = 0
+# df['topic_dist'] = 0
+# df['topic_words'] = 0
 
-for i in tqdm(range(len(model.docs))):
-    df["topic_dist"][i] = model.docs[i].get_topics(top_n=4)
-    df['top_topic'][i] = model.docs[i].get_topics()[0][0]
-    res = model.get_topic_words(df['top_topic'][i], top_n=5)
-    df["topic_words"][i] = ' '.join(w for w, p in res)
+# for i in tqdm(range(len(model.docs))):
+#     df["topic_dist"][i] = model.docs[i].get_topics(top_n=4)
+#     df['top_topic'][i] = model.docs[i].get_topics()[0][0]
+#     res = model.get_topic_words(df['top_topic'][i], top_n=5)
+#     df["topic_words"][i] = ' '.join(w for w, p in res)
     
 st.dataframe(df[['상품명','top_topic','topic_words']])
 
 # countplot 시각화
-fig, ax = plt.subplots(figsize=(20,10))
-sns.countplot(df[df['관리분류']=='에세이'], x='top_topic').set_title('에세이 분야 토픽 분포');
-st.pyplot(fig)
+# fig, ax = plt.subplots(figsize=(20,10))
+# sns.countplot(df[df['관리분류']=='에세이'], x='top_topic').set_title('에세이 분야 토픽 분포');
+# st.pyplot(fig)
 
