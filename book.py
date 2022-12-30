@@ -51,7 +51,7 @@ stopwords = ["합니다", "입니다", "있다", "이 책은", "이", '점', '�
         '그림', '세상', '오늘', '하루', '문장', '선정', '번역', '대표', '월', '기', '저자', '모두', '다시', '또', '드잉', '북', '무', '일상', '법', '눈', '매일', '줄']
 
 # 불용어 제거 함수
-@st.cache
+# @st.cache
 def remove_stop(text):
         token = text.split(" ")
         stops = stopwords
@@ -69,7 +69,7 @@ df['설명'] = df['설명'].str.replace("['유튜브']", '', regex=True)
 df["설명"] = df['설명'].str.replace("[\s]+", " ", regex=True)
 
 # 토픽모델링
-@st.cache
+# @st.cache
 class TopicModeling :
     # 최소 5개 이상 설명에 등장하고
     # 전체 출현빈도는 15개 이상인 단어만 사용
