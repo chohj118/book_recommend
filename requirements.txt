@@ -7,3 +7,4 @@ tomotopy
 tqdm
 koreanize_matplotlib
 pip == 22.3.1
+sklearn
