@@ -9,6 +9,7 @@ import sys
 import logging
 from tqdm import tqdm
 import koreanize_matplotlib
+from sklearn.metrics.pairwise import cosine_similarity
 
 # 페이지 제목 설정
 st.set_page_config(
@@ -22,13 +23,10 @@ st.header('도서추천시스템')
 st.subheader('추천')
 
 # 데이터 불러오기
-df = pd.read_csv('data/token.csv')
-st.dataframe(df)
-
-df['설명'] = df['설명_okt']
-df = df[['순위', 'mean', 'ISBN', '상품명', '저자', '출판사', '설명', '관리분류']]
-# 설명 컬럼 정규표현식
-df['설명'] = df["설명"].str.replace('[^가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z ]', "", regex=True)
+df = pd.read_csv('data/topic_recommand_2.csv')
+df['topic_dict'] = df['topic_dict'].apply(lambda x: eval(x))
+df_topic = pd.DataFrame(df['topic_dict'].tolist(), index=df.index).fillna(0)
+cosine_matrix = cosine_similarity(df_topic, df_topic)
 
 # 불용어
 # stopwords = ["합니다", "입니다", "있다", "이 책은", "이", '점', '기', 
