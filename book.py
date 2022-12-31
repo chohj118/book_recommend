@@ -9,6 +9,7 @@ import sys
 import logging
 from tqdm import tqdm
 import koreanize_matplotlib
+from wordcloud import WordCloud
 from sklearn.metrics.pairwise import cosine_similarity
 
 # 페이지 제목 설정
@@ -36,19 +37,25 @@ def select_topic(topic):
     return topic_index.tolist()
 
 # 도서 추천시스템
+# def recommand(book):
+#     df_cosine = pd.DataFrame(cosine_matrix, index=df.index, columns=df.index)
+#     sim = df_cosine[book].sort_values(ascending=False)
+#     df_sim = df.loc[sim.index,['관리분류', 'topic_words']].join(sim).sort_values(sim)
+#     return df_sim
+
 def recommand(book):
     df_cosine = pd.DataFrame(cosine_matrix, index=df.index, columns=df.index)
-    sim = df_cosine[book].sort_values(ascending=False)
-    df_sim = df.loc[sim.index, ['관리분류', 'topic_words']].join(sim)
-    return df_sim.head(10)
+    df_sub = df[['mean','관리분류']]
+    df_sim =pd.concat([df_cosine,df_sub],axis=1)
+    return df_sim[[book,'mean','관리분류']].sort_values(by=book,ascending=False)
 
 # topic = st.radio('topic을 선택해주세요', (df_topic.columns), horizontal=True)
 # book = st.radio('책을 선택해주세요', (df.loc[select_topic(topic)].index), horizontal=True)
 # st.dataframe(recommand(book))
 
 topic = st.selectbox('토픽을 선택해주세요', options=(df_topic.columns))
-book = st.selectbox('책을 선택해주세요', options=(df.loc[select_topic(topic)].index))
-st.table(recommand(book))
+book = st.selectbox('책을 선택해주세요', options=(select_topic(topic)))
+st.dataframe(recommand(book))
 
 
 
