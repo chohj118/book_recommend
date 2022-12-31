@@ -24,7 +24,7 @@ st.subheader('추천')
 
 # 데이터 불러오기
 df = pd.read_csv('data/topic_recommand_2.csv')
-# df.set_index(keys=['상품명'], inplace=True)
+df.set_index(keys=['상품명'], inplace=True)
 # 코사인 유사도 매트릭스
 df['topic_dict'] = df['topic_dict'].apply(lambda x: eval(x))
 df_topic = pd.DataFrame(df['topic_dict'].tolist(), index=df.index).fillna(0)
@@ -39,15 +39,15 @@ def select_topic(topic):
 def recommand(book):
     df_cosine = pd.DataFrame(cosine_matrix, index=df.index, columns=df.index)
     sim = df_cosine[book].sort_values(ascending=False)
-    df_sim = df.loc[sim.index, ['상품명','관리분류', 'topic_words']].join(sim)
+    df_sim = df.loc[sim.index, ['관리분류', 'topic_words']].join(sim)
     return df_sim.head(10)
 
 # topic = st.radio('topic을 선택해주세요', (df_topic.columns), horizontal=True)
 # book = st.radio('책을 선택해주세요', (df.loc[select_topic(topic)].index), horizontal=True)
 # st.dataframe(recommand(book))
 
-topic = st.selectbox('토픽을 선택해주세요', options=(df_topic.columns.tolist()))
-book = st.selectbox('책을 선택해주세요', options=(df.loc[select_topic(topic)].index.tolist()))
+topic = st.selectbox('토픽을 선택해주세요', options=(df_topic.columns))
+book = st.selectbox('책을 선택해주세요', options=(df.loc[select_topic(topic)].index))
 st.table(recommand(book))
 
 
