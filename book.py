@@ -55,7 +55,7 @@ topic = st.radio('topic을 선택해주세요', (df_topic.columns), horizontal=T
 
 # topic = st.selectbox('토픽을 선택해주세요', options=(df_topic.columns))
 book = st.selectbox('책을 선택해주세요', options=(select_topic(topic)))
-st.dataframe(recommand(book))
+st.dataframe(recommand(book).head(10))
 
 
 
