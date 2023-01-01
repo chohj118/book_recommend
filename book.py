@@ -20,8 +20,8 @@ st.set_page_config(
 )
 
 # 헤더와 서브헤더 설정
-st.header('도서추천시스템')
-st.subheader('추천')
+st.header('도서추천시스템📕')
+st.subheader('이런 책은 어떠세요?')
 
 # 데이터 불러오기
 df = pd.read_csv('data/topic_recommand_2.csv')
@@ -49,14 +49,20 @@ def recommand(book):
     df_sim =pd.concat([df_cosine,df_sub],axis=1)
     return df_sim[[book,'mean','관리분류']].sort_values(by=book,ascending=False)
 
-topic = st.radio('topic을 선택해주세요', (df_topic.columns), horizontal=True)
+# radio 형태로 선택
+# topic = st.radio('topic을 선택해주세요', (df_topic.columns), horizontal=True)
 # book = st.radio('책을 선택해주세요', (df.loc[select_topic(topic)].index), horizontal=True)
 # st.dataframe(recommand(book))
 
+# selectbox 형태로 선택
 # topic = st.selectbox('토픽을 선택해주세요', options=(df_topic.columns))
-book = st.selectbox('책을 선택해주세요', options=(select_topic(topic)))
-st.dataframe(recommand(book).head(10))
+# book = st.selectbox('책을 선택해주세요', options=(select_topic(topic)))
+# st.dataframe(recommand(book).head(10))
 
+# 사이드바 적용
+topic = st.sidebar.radio('토픽을 선택해주세요', options=(df_topic.columns), horizontal=True)
+book = st.sidebar.selectbox('책을 선택해주세요', options=(select_topic(topic)))
+st.dataframe(recommand(book)[1:11])
 
 
 # countplot 시각화
