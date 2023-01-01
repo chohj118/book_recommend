@@ -49,11 +49,11 @@ def recommand(book):
     df_sim =pd.concat([df_cosine,df_sub],axis=1)
     return df_sim[[book,'mean','관리분류']].sort_values(by=book,ascending=False)
 
-# topic = st.radio('topic을 선택해주세요', (df_topic.columns), horizontal=True)
+topic = st.radio('topic을 선택해주세요', (df_topic.columns), horizontal=True)
 # book = st.radio('책을 선택해주세요', (df.loc[select_topic(topic)].index), horizontal=True)
 # st.dataframe(recommand(book))
 
-topic = st.selectbox('토픽을 선택해주세요', options=(df_topic.columns))
+# topic = st.selectbox('토픽을 선택해주세요', options=(df_topic.columns))
 book = st.selectbox('책을 선택해주세요', options=(select_topic(topic)))
 st.dataframe(recommand(book))
 
