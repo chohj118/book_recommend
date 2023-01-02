@@ -28,12 +28,6 @@ st.subheader('이런 책은 어떠세요?')
 df = pd.read_csv('data/topic_recommand_2.csv')
 df.set_index(keys=['상품명'], inplace=True)
 
-# 이미지 불러오기
-def load_image(image_file):
-    img = Image.open(image_file)
-    return img
-
-# image_file = Image.open('book_image/김락희의 인체 드로잉.jpg')
 
 # 코사인 유사도 매트릭스
 df['topic_dict'] = df['topic_dict'].apply(lambda x: eval(x))
@@ -58,7 +52,6 @@ book = st.sidebar.selectbox('책을 선택해주세요', options=(select_topic(t
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     st.dataframe(recommand(book)[1:11])
-    # st.image(load_image(image_file),width=200)
     
     
 with col2:
