@@ -25,7 +25,7 @@ st.header('도서추천시스템📕')
 st.subheader('이런 책은 어떠세요?')
 
 # 데이터 불러오기
-df = pd.read_csv('data/topic_recommand_2.csv')
+df = pd.read_csv('data/topic_image.csv')
 df.set_index(keys=['상품명'], inplace=True)
 
 
@@ -39,19 +39,29 @@ def select_topic(topic):
     topic_index = df[df['top_topic']==(topic)].index
     return topic_index.sort_values(ascending=True).tolist()
 
+# 도서 추천하기
 def recommand(book):
     df_cosine = pd.DataFrame(cosine_matrix, index=df.index, columns=df.index)
     df_sub = df[['mean','관리분류']]
     df_sim =pd.concat([df_cosine,df_sub],axis=1)
     return df_sim[[book,'mean','관리분류']].sort_values(by=book,ascending=False)
 
+# 이미지 불러오기
+def book_image(book):
+    df_image = df['image']
+    return df_image.loc[book]
+
 # 사이드바 적용
 topic = st.sidebar.radio('토픽을 선택해주세요', options=(df_topic.columns), horizontal=True)
 book = st.sidebar.selectbox('책을 선택해주세요', options=(select_topic(topic)))
+# books = recommand(book).index
+url = book_image(book)
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
+    st.image(url,width=400)
     st.dataframe(recommand(book)[1:11])
+    # st.write(print(book))
     
     
 with col2:
