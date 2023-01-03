@@ -43,6 +43,16 @@ container.write(f"설명 : {choice['설명'].tolist()[0]}")
 
 recommand = recommand(search)
 
+tabs_font_css = """
+<style>
+button[data-baseweb="tab"] {
+  font-size: 13px;
+}
+</style>
+"""
+
+st.write(tabs_font_css, unsafe_allow_html=True)
+
 st.header('📚책 추천 목록')
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10= st.tabs(['1번','2번','3번','4번','5번','6번','7번','8번','9번','10번'])
 with tab1:
