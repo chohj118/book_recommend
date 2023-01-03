@@ -2,7 +2,7 @@ pandas
 numpy
 streamlit == 1.11.0
 koreanize_matplotlib
-pip == 22.0.3
+pip == 22.3.1
 scikit-learn
 wordcloud
 Ipython
