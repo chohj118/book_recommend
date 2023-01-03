@@ -96,6 +96,7 @@ st.write(tabs_font_css, unsafe_allow_html=True)
 
 
 st.header('📚책 추천 목록')
+st.caption('shift + scroll 👉👉')
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([f"{recommand.iloc[i]['상품명']}" for i in range(1,11)])
 
 with tab1:

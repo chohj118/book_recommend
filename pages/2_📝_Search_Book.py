@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
+import re
 
 st.set_page_config(
     page_icon='📚',
@@ -20,7 +21,9 @@ def select_topic(topic):
     topic_index = df[df['top_topic']==(topic)].index
     return topic_index.tolist()
 def search_book(title):
-    book_title = df.loc[df['상품명'].str.contains(title), "상품명"].sort_values().tolist()
+    title = re.sub(r"\s", "", title)
+    title_1 = df['상품명'].apply(lambda x: re.sub(r"\s", "", x))
+    book_title = df.loc[title_1.str.contains(title), "상품명"].tolist()
     return book_title
 def choice_book(search):
     book_title = df.loc[df['상품명'] == search, ['상품명', '책소개', '관리분류','IMAGE','판매가']]
@@ -65,6 +68,7 @@ button[data-baseweb="tab"] {
 st.write(tabs_font_css, unsafe_allow_html=True)
 
 st.header('📚책 추천 목록')
+st.caption('shift + scroll 👉👉')
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([f"{recommand.iloc[i]['상품명']}" for i in range(1,11)])
 with tab1:
     col1, col2 = st.columns([0.3,0.6])

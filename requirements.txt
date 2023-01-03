@@ -6,3 +6,4 @@ pip == 22.3.1
 scikit-learn
 wordcloud
 Ipython
+re
