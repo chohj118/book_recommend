@@ -79,67 +79,30 @@ container.write(f"설명 : {recommand.iloc[0]['설명']}")
 
 
 st.header('📚책 추천 목록')
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10= st.tabs(['1번','2번','3번','4번','5번','6번','7번','8번','9번','10번'])
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([f"{recommand.iloc[i]['상품명']}" for i in range(1,11)])
+def tab(num):
+    return st.header(f"{recommand.iloc[num]['상품명']}"), st.image(f"{recommand.iloc[num]['IMAGE']}",width=300), st.write(f"판매가: {recommand.iloc[num]['판매가']}"),st.write(f"카테고리 : {recommand.iloc[num]['관리분류']}"), st.write(f"설명 : {recommand.iloc[num]['설명']}")
+
 with tab1:
-    st.header(f"{recommand.iloc[1]['상품명']}")
-    st.image(f"{recommand.iloc[1]['IMAGE']}",width=300)
-    st.write(f"판매가: {recommand.iloc[1]['판매가']}")
-    st.write(f"카테고리 : {recommand.iloc[1]['관리분류']}")
-    st.write(f"설명 : {recommand.iloc[1]['설명']}")
+    tab(1)
 with tab2:
-    st.header(f"{recommand.iloc[2]['상품명']}")
-    st.image(f"{recommand.iloc[2]['IMAGE']}",width=300)
-    st.write(f"판매가: {recommand.iloc[2]['판매가']}")
-    st.write(f"카테고리 : {recommand.iloc[2]['관리분류']}")
-    st.write(f"설명 : {recommand.iloc[2]['설명']}")
+    tab(2)
 with tab3:
-    st.header(f"{recommand.iloc[3]['상품명']}")
-    st.image(f"{recommand.iloc[3]['IMAGE']}",width=300)
-    st.write(f"판매가: {recommand.iloc[3]['판매가']}")
-    st.write(f"카테고리 : {recommand.iloc[3]['관리분류']}")
-    st.write(f"설명 : {recommand.iloc[3]['설명']}")
+    tab(3)
 with tab4:
-    st.header(f"{recommand.iloc[4]['상품명']}")
-    st.image(f"{recommand.iloc[4]['IMAGE']}",width=300)
-    st.write(f"판매가: {recommand.iloc[4]['판매가']}")
-    st.write(f"카테고리 : {recommand.iloc[4]['관리분류']}")
-    st.write(f"설명 : {recommand.iloc[4]['설명']}")
+    tab(4)
 with tab5:
-    st.header(f"{recommand.iloc[5]['상품명']}")
-    st.image(f"{recommand.iloc[5]['IMAGE']}",width=300)
-    st.write(f"판매가: {recommand.iloc[5]['판매가']}")
-    st.write(f"카테고리 : {recommand.iloc[5]['관리분류']}")
-    st.write(f"설명 : {recommand.iloc[5]['설명']}")
+    tab(5)
 with tab6:
-    st.header(f"{recommand.iloc[6]['상품명']}")
-    st.image(f"{recommand.iloc[6]['IMAGE']}",width=300)
-    st.write(f"판매가: {recommand.iloc[6]['판매가']}")
-    st.write(f"카테고리 : {recommand.iloc[6]['관리분류']}")
-    st.write(f"설명 : {recommand.iloc[6]['설명']}")
+    tab(6)
 with tab7:
-    st.header(f"{recommand.iloc[7]['상품명']}")
-    st.image(f"{recommand.iloc[7]['IMAGE']}",width=300)
-    st.write(f"판매가: {recommand.iloc[7]['판매가']}")
-    st.write(f"카테고리 : {recommand.iloc[7]['관리분류']}")
-    st.write(f"설명 : {recommand.iloc[7]['설명']}")
+    tab(7)
 with tab8:
-    st.header(f"{recommand.iloc[8]['상품명']}")
-    st.image(f"{recommand.iloc[8]['IMAGE']}",width=300)
-    st.write(f"판매가: {recommand.iloc[8]['판매가']}")
-    st.write(f"카테고리 : {recommand.iloc[8]['관리분류']}")
-    st.write(f"설명 : {recommand.iloc[8]['설명']}")
+    tab(8)
 with tab9:
-    st.header(f"{recommand.iloc[9]['상품명']}")
-    st.image(f"{recommand.iloc[9]['IMAGE']}",width=300)
-    st.write(f"판매가: {recommand.iloc[9]['판매가']}")
-    st.write(f"카테고리 : {recommand.iloc[9]['관리분류']}")
-    st.write(f"설명 : {recommand.iloc[9]['설명']}")
+    tab(9)
 with tab10:
-    st.header(f"{recommand.iloc[10]['상품명']}")
-    st.image(f"{recommand.iloc[10]['IMAGE']}",width=300)
-    st.write(f"판매가: {recommand.iloc[10]['판매가']}")
-    st.write(f"카테고리 : {recommand.iloc[10]['관리분류']}")
-    st.write(f"설명 : {recommand.iloc[10]['설명']}")
+    tab(10)
     
 
 st.write('\-'*180)
