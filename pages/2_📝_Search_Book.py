@@ -27,13 +27,13 @@ def search_book(title):
     book_title = df.loc[title_1.str.contains(title), "상품명"].tolist()
     return book_title
 def choice_book(search):
-    book_title = df.loc[df['상품명'] == search, ['상품명', '책소개', '관리분류','IMAGE','판매가']]
+    book_title = df.loc[df['상품명'] == search, ['상품명', '책소개', '관리분류','IMAGE','판매가','저자']]
     return book_title
 def recommand(book):
     book_index = df[df['상품명'] == book].index[0]
     df_pearson = pd.DataFrame(pearson_sim, index=df.index, columns=df.index)
     sim = df_pearson[book_index].sort_values(ascending=False)
-    df_sim = df.loc[sim.index, ["상품명", "책소개",'관리분류', 'topic_words','IMAGE','판매가']].join(sim)
+    df_sim = df.loc[sim.index, ["상품명", "책소개",'관리분류', 'topic_words','IMAGE','판매가','저자']].join(sim)
     return df_sim.head(11)
 
 title = st.text_input('💡원하시는 책의 제목을 입력하세요.')
@@ -53,6 +53,7 @@ with col2:
     st.markdown("##")
     st.markdown("##")
     st.write(f"💸판매가: {choice['판매가'].tolist()[0]}")
+    st.write(f"📝저자: {choice['저자'].tolist()[0]}")
     st.write(f"📁카테고리 : {choice['관리분류'].tolist()[0]}")
     st.write(f"🔎책소개 : {choice['책소개'].tolist()[0]}")
 
@@ -83,6 +84,7 @@ with tab1:
         st.markdown("#")
         st.markdown("#")
         st.write(f"💸판매가: {recommand.iloc[1]['판매가']}")
+        st.write(f"📝저자: {recommand.iloc[1]['저자']}")
         st.write(f"📁카테고리 : {recommand.iloc[1]['관리분류']}")
         st.write(f"🔎책소개 : {recommand.iloc[1]['책소개']}")
 with tab2:
@@ -97,6 +99,7 @@ with tab2:
         st.markdown("#")
         st.markdown("#")
         st.write(f"💸판매가: {recommand.iloc[2]['판매가']}")
+        st.write(f"📝저자: {recommand.iloc[2]['저자']}")
         st.write(f"📁카테고리 : {recommand.iloc[2]['관리분류']}")
         st.write(f"🔎책소개 : {recommand.iloc[2]['책소개']}")
 with tab3:
@@ -111,6 +114,7 @@ with tab3:
         st.markdown("#")
         st.markdown("#")
         st.write(f"💸판매가: {recommand.iloc[3]['판매가']}")
+        st.write(f"📝저자: {recommand.iloc[3]['저자']}")
         st.write(f"📁카테고리 : {recommand.iloc[3]['관리분류']}")
         st.write(f"🔎책소개 : {recommand.iloc[3]['책소개']}")
 with tab4:
@@ -125,6 +129,7 @@ with tab4:
         st.markdown("#")
         st.markdown("#")
         st.write(f"💸판매가: {recommand.iloc[4]['판매가']}")
+        st.write(f"📝저자: {recommand.iloc[4]['저자']}")
         st.write(f"📁카테고리 : {recommand.iloc[4]['관리분류']}")
         st.write(f"🔎책소개 : {recommand.iloc[4]['책소개']}")
 with tab5:
@@ -139,6 +144,7 @@ with tab5:
         st.markdown("#")
         st.markdown("#")
         st.write(f"💸판매가: {recommand.iloc[5]['판매가']}")
+        st.write(f"📝저자: {recommand.iloc[5]['저자']}")
         st.write(f"📁카테고리 : {recommand.iloc[5]['관리분류']}")
         st.write(f"🔎책소개 : {recommand.iloc[5]['책소개']}")
 with tab6:
@@ -153,6 +159,7 @@ with tab6:
         st.markdown("#")
         st.markdown("#")
         st.write(f"💸판매가: {recommand.iloc[6]['판매가']}")
+        st.write(f"📝저자: {recommand.iloc[6]['저자']}")
         st.write(f"📁카테고리 : {recommand.iloc[6]['관리분류']}")
         st.write(f"🔎책소개 : {recommand.iloc[6]['책소개']}")
 with tab7:
@@ -166,6 +173,7 @@ with tab7:
         st.markdown("#")
         st.markdown("#")
         st.write(f"💸판매가: {recommand.iloc[7]['판매가']}")
+        st.write(f"📝저자: {recommand.iloc[7]['저자']}")
         st.write(f"📁카테고리 : {recommand.iloc[7]['관리분류']}")
         st.write(f"🔎책소개 : {recommand.iloc[7]['책소개']}")
 with tab8:
@@ -180,6 +188,7 @@ with tab8:
         st.markdown("#")
         st.markdown("#")
         st.write(f"💸판매가: {recommand.iloc[8]['판매가']}")
+        st.write(f"📝저자: {recommand.iloc[8]['저자']}")
         st.write(f"📁카테고리 : {recommand.iloc[8]['관리분류']}")
         st.write(f"🔎책소개 : {recommand.iloc[8]['책소개']}")
 with tab9:
@@ -194,6 +203,7 @@ with tab9:
         st.markdown("#")
         st.markdown("#")
         st.write(f"💸판매가: {recommand.iloc[9]['판매가']}")
+        st.write(f"📝저자: {recommand.iloc[9]['저자']}")
         st.write(f"📁카테고리 : {recommand.iloc[9]['관리분류']}")
         st.write(f"🔎책소개 : {recommand.iloc[9]['책소개']}")
 with tab10:
@@ -208,10 +218,11 @@ with tab10:
         st.markdown("#")
         st.markdown("#")
         st.write(f"💸판매가: {recommand.iloc[10]['판매가']}")
+        st.write(f"📝저자: {recommand.iloc[10]['저자']}")
         st.write(f"📁카테고리 : {recommand.iloc[10]['관리분류']}")
         st.write(f"🔎책소개 : {recommand.iloc[10]['책소개']}")
     
     
-st.write('\-'*180)
+st.markdown("#")
 st.write('📢아래 홈페이지에서 원하는 책 제목을 복사해 검색하세요!')
 st.write('🌐yes24 홈페이지 : http://www.yes24.com/main/default.aspx')
