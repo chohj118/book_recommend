@@ -27,7 +27,7 @@ def recommand(book):
     book_index = topic_df[topic_df['상품명'] == book].index[0]
     df_pearson = pd.DataFrame(pearson_sim, index=df.index, columns=df.index)
     sim = df_pearson[book_index].sort_values(ascending=False)
-    df_sim = df.loc[sim.index, ["상품명", "설명",'관리분류', 'topic_words','IMAGE','판매가']].join(sim)
+    df_sim = df.loc[sim.index, ["상품명", "책소개",'관리분류', 'topic_words','IMAGE','판매가']].join(sim)
     return df_sim
   
 st.sidebar.header('💡토픽을 선택해주세요')
@@ -82,7 +82,7 @@ with col2:
     st.markdown("##")
     st.write(f"💸판매가: {recommand.iloc[0]['판매가']}")
     st.write(f"📁카테고리 : {recommand.iloc[0]['관리분류']}")
-    st.write(f"🔎설명 : {recommand.iloc[0]['설명']}")
+    st.write(f"🔎책소개 : {recommand.iloc[0]['책소개']}")
 
 tabs_font_css = """
 <style>
@@ -113,7 +113,7 @@ with tab1:
         st.write('')
         st.write(f"📁카테고리 : {recommand.iloc[1]['관리분류']}")
         st.write('')
-        st.write(f"🔎설명 : {recommand.iloc[1]['설명']}")
+        st.write(f"🔎책소개 : {recommand.iloc[1]['책소개']}")
 with tab2:
     col1, col2 = st.columns([0.3,0.6])
     with col1:
@@ -129,7 +129,7 @@ with tab2:
         st.write('')
         st.write(f"📁카테고리 : {recommand.iloc[2]['관리분류']}")
         st.write('')
-        st.write(f"🔎설명 : {recommand.iloc[2]['설명']}")
+        st.write(f"🔎책소개 : {recommand.iloc[2]['책소개']}")
 with tab3:
     col1, col2 = st.columns([0.3,0.6])
     with col1:
@@ -145,7 +145,7 @@ with tab3:
         st.write('')
         st.write(f"📁카테고리 : {recommand.iloc[3]['관리분류']}")
         st.write('')
-        st.write(f"🔎설명 : {recommand.iloc[3]['설명']}")
+        st.write(f"🔎책소개 : {recommand.iloc[3]['책소개']}")
 with tab4:
     col1, col2 = st.columns([0.3,0.6])
     with col1:
@@ -161,7 +161,7 @@ with tab4:
         st.write('')
         st.write(f"📁카테고리 : {recommand.iloc[4]['관리분류']}")
         st.write('')
-        st.write(f"🔎설명 : {recommand.iloc[4]['설명']}")
+        st.write(f"🔎책소개 : {recommand.iloc[4]['책소개']}")
 with tab5:
     col1, col2 = st.columns([0.3,0.6])
     with col1:
@@ -177,7 +177,7 @@ with tab5:
         st.write('')
         st.write(f"📁카테고리 : {recommand.iloc[5]['관리분류']}")
         st.write('')
-        st.write(f"🔎설명 : {recommand.iloc[5]['설명']}")
+        st.write(f"🔎책소개 : {recommand.iloc[5]['책소개']}")
 with tab6:
     col1, col2 = st.columns([0.3,0.6])
     with col1:
@@ -193,7 +193,7 @@ with tab6:
         st.write('')
         st.write(f"📁카테고리 : {recommand.iloc[6]['관리분류']}")
         st.write('')
-        st.write(f"🔎설명 : {recommand.iloc[6]['설명']}")
+        st.write(f"🔎책소개 : {recommand.iloc[6]['책소개']}")
 with tab7:
     col1, col2 = st.columns([0.3,0.6])
     with col1:
@@ -209,7 +209,7 @@ with tab7:
         st.write('')
         st.write(f"📁카테고리 : {recommand.iloc[7]['관리분류']}")
         st.write('')
-        st.write(f"🔎설명 : {recommand.iloc[7]['설명']}")
+        st.write(f"🔎책소개 : {recommand.iloc[7]['책소개']}")
 with tab8:
     col1, col2 = st.columns([0.3,0.6])
     with col1:
@@ -225,7 +225,7 @@ with tab8:
         st.write('')
         st.write(f"📁카테고리 : {recommand.iloc[8]['관리분류']}")
         st.write('')
-        st.write(f"🔎설명 : {recommand.iloc[8]['설명']}")
+        st.write(f"🔎책소개 : {recommand.iloc[8]['책소개']}")
 with tab9:
     col1, col2 = st.columns([0.3,0.6])
     with col1:
@@ -241,7 +241,7 @@ with tab9:
         st.write('')
         st.write(f"📁카테고리 : {recommand.iloc[9]['관리분류']}")
         st.write('')
-        st.write(f"🔎설명 : {recommand.iloc[9]['설명']}")
+        st.write(f"🔎책소개 : {recommand.iloc[9]['책소개']}")
 with tab10:
     col1, col2 = st.columns([0.3,0.6])
     with col1:
@@ -257,7 +257,7 @@ with tab10:
         st.write('')
         st.write(f"📁카테고리 : {recommand.iloc[10]['관리분류']}")
         st.write('')
-        st.write(f"🔎설명 : {recommand.iloc[10]['설명']}")
+        st.write(f"🔎책소개 : {recommand.iloc[10]['책소개']}")
     
 
 st.write('\-'*180)
