@@ -38,7 +38,18 @@ def recommand(book):
 
 title = st.text_input('💡원하시는 책의 제목을 입력하세요.')
 
-search = st.selectbox('💡이 책이 맞으신가요?', search_book(title))
+placeholder = st.empty()
+
+if not title:
+    placeholder.success("입력을 기다리고 있어요.")
+    
+
+search = st.selectbox('이 책이 맞나요?', search_book(title))
+
+
+if not search:
+    placeholder.error("책을 찾을 수 없습니다. 제목을 다시 확인해주세요.")
+    
 choice = choice_book(search)
 
 col1, col2 = st.columns([0.3,0.6])
