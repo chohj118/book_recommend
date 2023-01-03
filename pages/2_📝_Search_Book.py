@@ -44,7 +44,7 @@ if not title:
     placeholder.success("입력을 기다리고 있어요.")
     
 
-search = st.selectbox('이 책이 맞나요?', search_book(title))
+search = st.selectbox('🧐이 책이 맞나요?', search_book(title))
 
 
 if not search:
