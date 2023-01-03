@@ -11,7 +11,7 @@ st.set_page_config(
 st.title('책 제목을 입력하세요')
 st.caption('📢단어로 입력하셔도 됩니다')
 
-df = pd.read_csv('data/in_price.csv')
+df = pd.read_csv('data/final_32.csv')
 df['topic_dict'] = df['topic_dict'].apply(lambda x: eval(x))
 df_topic = pd.DataFrame(df['topic_dict'].tolist(), index=df.index).fillna(0)
 pearson_sim = np.corrcoef(df_topic.to_numpy())
