@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -74,6 +73,16 @@ container = st.container()
 container.subheader(f"책 제목 : {recommand.iloc[0]['상품명']}")
 container.write(f"카테고리 : {recommand.iloc[0]['관리분류']}")
 container.write(f"설명 : {recommand.iloc[0]['설명']}")
+
+tabs_font_css = """
+<style>
+button[data-baseweb="tab"] {
+  font-size: 13px;
+}
+</style>
+"""
+
+st.write(tabs_font_css, unsafe_allow_html=True)
 
 
 st.header('📚책 추천 목록')
