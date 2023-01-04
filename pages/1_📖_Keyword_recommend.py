@@ -69,9 +69,10 @@ else:
         book1 = st.selectbox('💡책을 선택해주세요', category_etc)
     recommand = recommand(book1)
 
+st.markdown('## ')
 col1, col2 = st.columns([0.3,0.6])
 with col1:
-    st.subheader(f"{recommand.iloc[0]['상품명']}")
+    st.subheader(f"📕당신이 선택한 {recommand.iloc[0]['상품명']}에 관한 내용")
     st.image(f"{recommand.iloc[0]['IMAGE']}",width=300)
 with col2:
     st.markdown("##")
@@ -96,7 +97,8 @@ button[data-baseweb="tab"] {
 st.write(tabs_font_css, unsafe_allow_html=True)
 
 
-st.header('📚책 추천 목록')
+st.header(f"📚 {recommand.iloc[0]['상품명']}와 함께 살펴볼 만한 책 10권")
+# st.subheader(f"{recommand.iloc[0]['상품명']}와 유사한 책 목록입니다")
 st.caption('shift + scroll 👉👉')
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([f"{recommand.iloc[i]['상품명']}" for i in range(1,11)])
 
@@ -274,7 +276,7 @@ with tab10:
 
 st.markdown("#")
 st.write('📢아래 홈페이지에서 원하는 책 제목을 복사해 검색하세요!')
-st.subheader('🌐yes24 홈페이지 : http://www.yes24.com/main/default.aspx')
+st.write('🌐yes24 홈페이지 : http://www.yes24.com/main/default.aspx')
 st.markdown("#")
 st.subheader("🥴 더 좋은 책을 추천 받고 싶으시다구요? 설문 조사를 통해 성능을 높여주세요!")
 st.subheader('설문조사 :https://docs.google.com/forms/d/e/1FAIpQLSd9mFcWH9Q1jCwV7CehiHpmzxU57a01dZiHojw5k5ffrfokHg/viewform')
