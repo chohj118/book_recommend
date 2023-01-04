@@ -13,7 +13,7 @@ st.set_page_config(
 st.header('📚이book 어때?')
 st.subheader('📖키워드 기반 도서 추천')
 
-df = pd.read_csv('data/final_32.csv')
+df = pd.read_csv('data/final_file.csv')
 df['topic_dict'] = df['topic_dict'].apply(lambda x: eval(x))
 df_topic = pd.DataFrame(df['topic_dict'].tolist(), index=df.index).fillna(0)
 pearson_sim = np.corrcoef(df_topic.to_numpy())
