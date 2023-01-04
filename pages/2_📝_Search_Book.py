@@ -24,7 +24,7 @@ def select_topic(topic):
 def search_book(title):
     title = re.sub(r"\s", "", title)
     title_1 = df['상품명'].apply(lambda x: re.sub(r"\s", "", x))
-    book_title = df.loc[title_1.str.contains(title), "상품명"].tolist()
+    book_title = df.loc[title_1.str.contains(title), "상품명"].sort_values(ascending=True).tolist()
     return book_title
 def choice_book(search):
     book_title = df.loc[df['상품명'] == search, ['상품명', '책소개', '관리분류','IMAGE','판매가','저자']]
