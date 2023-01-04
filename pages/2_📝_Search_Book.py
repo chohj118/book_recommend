@@ -54,7 +54,7 @@ choice = choice_book(search)
 
 col1, col2 = st.columns([0.3,0.6])
 with col1:
-    st.subheader(f"『당신이 선택한 {choice['상품명'].tolist()[0]}』에 관한 내용")
+    st.subheader(f"당신이 선택한 『{choice['상품명'].tolist()[0]}』에 관한 내용")
     st.image(choice['IMAGE'].tolist()[0],width=300)
 with col2:
     st.markdown("##")
