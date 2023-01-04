@@ -30,7 +30,7 @@ def recommand(book):
     df_sim = df.loc[sim.index, ["상품명", "책소개",'관리분류', 'topic_words','IMAGE','판매가','저자']].join(sim)
     return df_sim
   
-st.sidebar.header('💡토픽을 선택해주세요')
+st.sidebar.header('💡키워드를 선택해주세요')
 topic = st.sidebar.radio('', (df['topic_words'].value_counts().index))
 topic_name = select_topic(topic)
 category_index = df.loc[topic_name, '관리분류'].value_counts().index
