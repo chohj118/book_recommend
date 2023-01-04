@@ -11,7 +11,7 @@ st.set_page_config(
 
 # 헤더와 서브헤더 설정
 st.header('📚이book 어때?')
-st.subheader('📖키워드 기반 도서 추천')
+st.subheader('키워드 기반 도서 추천')
 
 df = pd.read_csv('data/final_file.csv')
 df['topic_dict'] = df['topic_dict'].apply(lambda x: eval(x))
@@ -30,7 +30,7 @@ def recommand(book):
     df_sim = df.loc[sim.index, ["상품명", "책소개",'관리분류', 'topic_words','IMAGE','판매가','저자']].join(sim)
     return df_sim
   
-st.sidebar.header('💡키워드를 선택해주세요')
+st.sidebar.header('관심 키워드를 선택해주세요')
 topic = st.sidebar.radio('', (df['topic_words'].value_counts().index))
 topic_name = select_topic(topic)
 category_index = df.loc[topic_name, '관리분류'].value_counts().index
@@ -48,19 +48,19 @@ for v, i in enumerate(category_index):
         
 
 page_name.append('그 외')
-page = st.radio('💡장르를 선택해주세요', page_name,  horizontal=True)
+page = st.radio('선택한 장르별로 분류해서 보여드릴게요', page_name,  horizontal=True)
 
 if page == page_name[0]:
-    book1 = st.selectbox(f'💡{page_name[0]}장르의 책을 선택해주세요', category[0])
+    book1 = st.selectbox(f'{page_name[0]}장르의 책을 선택해주세요', category[0])
     recommand = recommand(book1)
 elif page == page_name[1]:
-    book1 = st.selectbox(f'💡{page_name[1]}장르의 책을 선택해주세요', category[1])
+    book1 = st.selectbox(f'{page_name[1]}장르의 책을 선택해주세요', category[1])
     recommand = recommand(book1)
 elif page == page_name[2]:
-    book1 = st.selectbox(f'💡{page_name[2]}장르의 책을 선택해주세요', category[2])
+    book1 = st.selectbox(f'{page_name[2]}장르의 책을 선택해주세요', category[2])
     recommand = recommand(book1)
 elif page == page_name[3]:
-    book1 = st.selectbox(f'💡{page_name[3]}장르의 책을 선택해주세요', category[3])
+    book1 = st.selectbox(f'{page_name[3]}장르의 책을 선택해주세요', category[3])
     recommand = recommand(book1)
 else:
     if len(category_etc) == 0:
@@ -72,7 +72,7 @@ else:
 st.markdown('## ')
 col1, col2 = st.columns([0.3,0.6])
 with col1:
-    st.subheader(f"📕당신이 선택한 {recommand.iloc[0]['상품명']}에 관한 내용")
+    st.subheader(f"당신이 선택한 {recommand.iloc[0]['상품명']}에 관한 내용")
     st.image(f"{recommand.iloc[0]['IMAGE']}",width=300)
 with col2:
     st.markdown("##")
@@ -97,8 +97,7 @@ button[data-baseweb="tab"] {
 st.write(tabs_font_css, unsafe_allow_html=True)
 
 
-st.header(f"📚 {recommand.iloc[0]['상품명']}와 함께 살펴볼 만한 책 10권")
-# st.subheader(f"{recommand.iloc[0]['상품명']}와 유사한 책 목록입니다")
+st.header(f"{recommand.iloc[0]['상품명']}와 함께 살펴볼 만한 책 10권")
 st.caption('shift + scroll 👉👉')
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([f"{recommand.iloc[i]['상품명']}" for i in range(1,11)])
 
@@ -276,7 +275,7 @@ with tab10:
 
 st.markdown("#")
 st.write('📢아래 홈페이지에서 원하는 책 제목을 복사해 검색하세요!')
-st.write('🌐yes24 홈페이지 : http://www.yes24.com/main/default.aspx')
+st.write('yes24 홈페이지 : http://www.yes24.com/main/default.aspx')
 st.markdown("#")
-st.subheader("🥴 더 좋은 책을 추천 받고 싶으시다구요? 설문 조사를 통해 성능을 높여주세요!")
+st.subheader("더 좋은 책을 추천 받고 싶으시다구요? 설문 조사를 통해 성능을 높여주세요!")
 st.subheader('설문조사 :https://docs.google.com/forms/d/e/1FAIpQLSd9mFcWH9Q1jCwV7CehiHpmzxU57a01dZiHojw5k5ffrfokHg/viewform')

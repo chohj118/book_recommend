@@ -10,8 +10,8 @@ st.set_page_config(
 )
 
 st.header('📚이book 어때?')
-st.subheader('📖선택한 책과 유사한 도서 추천')
-st.caption('📢단어로 입력하셔도 됩니다')
+st.subheader('선택한 책과 유사한 도서 추천')
+st.caption('단어로 입력하셔도 됩니다')
 
 df = pd.read_csv('data/final_file.csv')
 df['topic_dict'] = df['topic_dict'].apply(lambda x: eval(x))
@@ -36,7 +36,7 @@ def recommand(book):
     df_sim = df.loc[sim.index, ["상품명", "책소개",'관리분류', 'topic_words','IMAGE','판매가','저자']].join(sim)
     return df_sim.head(11)
 
-title = st.text_input('💡원하시는 책의 제목을 입력하세요.')
+title = st.text_input('원하시는 책의 제목을 입력하세요.')
 
 placeholder = st.empty()
 
@@ -44,7 +44,7 @@ if not title:
     placeholder.success("입력을 기다리고 있어요.")
     
 
-search = st.selectbox('🧐이 책이 맞나요?', search_book(title))
+search = st.selectbox('이 책이 맞나요?', search_book(title))
 
 
 if not search:
@@ -54,7 +54,7 @@ choice = choice_book(search)
 
 col1, col2 = st.columns([0.3,0.6])
 with col1:
-    st.subheader(f"{choice['상품명'].tolist()[0]}")
+    st.subheader(f"당신이 선택한 {choice['상품명'].tolist()[0]}에 관한 내용")
     st.image(choice['IMAGE'].tolist()[0],width=300)
 with col2:
     st.markdown("##")
@@ -80,7 +80,7 @@ button[data-baseweb="tab"] {
 
 st.write(tabs_font_css, unsafe_allow_html=True)
 
-st.header('📚책 추천 목록')
+st.header(f"{recommand.iloc[0]['상품명']}와 함께 살펴볼 만한 책 10권")
 st.caption('shift + scroll 👉👉')
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([f"{recommand.iloc[i]['상품명']}" for i in range(1,11)])
 with tab1:
@@ -236,7 +236,7 @@ with tab10:
     
 st.markdown("#")
 st.write('📢아래 홈페이지에서 원하는 책 제목을 복사해 검색하세요!')
-st.write('🌐yes24 홈페이지 : http://www.yes24.com/main/default.aspx')
+st.write('yes24 홈페이지 : http://www.yes24.com/main/default.aspx')
 st.markdown("#")
-st.subheader("⭐더 좋은 성능을 만들기 위해 설문 부탁드려요⭐")
+st.subheader("더 좋은 성능을 만들기 위해 설문 부탁드려요")
 st.subheader('설문조사 :https://docs.google.com/forms/d/e/1FAIpQLSd9mFcWH9Q1jCwV7CehiHpmzxU57a01dZiHojw5k5ffrfokHg/viewform')
