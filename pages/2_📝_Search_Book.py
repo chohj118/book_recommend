@@ -239,4 +239,4 @@ st.write('📢아래 홈페이지에서 원하는 책 제목을 복사해 검색
 st.write('yes24 홈페이지 : http://www.yes24.com/main/default.aspx')
 st.markdown("#")
 st.subheader("더 좋은 성능을 만들기 위해 설문 부탁드려요")
-st.subheader('설문조사 :https://docs.google.com/forms/d/e/1FAIpQLSd9mFcWH9Q1jCwV7CehiHpmzxU57a01dZiHojw5k5ffrfokHg/viewform')
+st.subheader(':https://docs.google.com/forms/d/e/1FAIpQLSd9mFcWH9Q1jCwV7CehiHpmzxU57a01dZiHojw5k5ffrfokHg/viewform')
