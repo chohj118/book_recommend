@@ -22,16 +22,14 @@
 
 😎세부적으로 나눠서 ‘장르’와는 구별되는 ‘토픽’을 찾는 것이 목표❗
 
-[ldavis.html](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd8249d0-8c17-45f0-a1e8-aa4dac03531d/ldavis.html)
-
-# 추천시스템 사용법
-[추천시스템](https://chohj118-book-recommend-intro-rt5lz9.streamlit.app/)
-
 ### 📚 책을 추천해볼까요?
 
 - 해당 토픽에 해당하는 목록 제시
 - 목록에서 선택한 도서와 토픽 내 각각의 도서들 간의 피어슨 유사도 계산
 - 유사도 높은 순으로 상위 10권의 책 추천
+
+# 추천시스템 사용법
+[추천시스템](https://chohj118-book-recommend-intro-rt5lz9.streamlit.app/)
 
 ### 📔 이렇게 사용해보세요
 
