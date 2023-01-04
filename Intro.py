@@ -17,7 +17,7 @@ st.markdown('#')
 st.markdown('## 📔 이렇게 사용해보세요')
 
 
-col1, col2 = st.columns([0.3,0.6])
+col1, col2 = st.columns([0.4,0.5])
 with col1:
     st.markdown('### 1️⃣ Keyword Recommend')
     st.markdown('1.사이드 바에 있는 토픽 중 마음에 드는 토픽을 선택👈하세요')
