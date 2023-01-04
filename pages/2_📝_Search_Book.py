@@ -54,7 +54,7 @@ choice = choice_book(search)
 
 col1, col2 = st.columns([0.3,0.6])
 with col1:
-    st.subheader(f"당신이 선택한 {choice['상품명'].tolist()[0]}에 관한 내용")
+    st.subheader(f"『당신이 선택한 {choice['상품명'].tolist()[0]}』에 관한 내용")
     st.image(choice['IMAGE'].tolist()[0],width=300)
 with col2:
     st.markdown("##")
@@ -80,7 +80,7 @@ button[data-baseweb="tab"] {
 
 st.write(tabs_font_css, unsafe_allow_html=True)
 
-st.header(f"{recommand.iloc[0]['상품명']}와 함께 살펴볼 만한 책 10권")
+st.header(f"『{recommand.iloc[0]['상품명']}』와 함께 살펴볼 만한 책 10권")
 st.caption('shift + scroll 👉👉')
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([f"{recommand.iloc[i]['상품명']}" for i in range(1,11)])
 with tab1:
