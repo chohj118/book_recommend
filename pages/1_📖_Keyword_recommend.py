@@ -274,4 +274,7 @@ with tab10:
 
 st.markdown("#")
 st.write('📢아래 홈페이지에서 원하는 책 제목을 복사해 검색하세요!')
-st.write('🌐yes24 홈페이지 : http://www.yes24.com/main/default.aspx')
+st.subheader('🌐yes24 홈페이지 : http://www.yes24.com/main/default.aspx')
+st.markdown("#")
+st.subheader("🥴 더 좋은 책을 추천 받고 싶으시다구요? 설문 조사를 통해 성능을 높여주세요!")
+st.subheader('설문조사 :https://docs.google.com/forms/d/e/1FAIpQLSd9mFcWH9Q1jCwV7CehiHpmzxU57a01dZiHojw5k5ffrfokHg/viewform')
