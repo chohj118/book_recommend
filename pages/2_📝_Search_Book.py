@@ -5,11 +5,11 @@ import re
 
 st.set_page_config(
     page_icon='📚',
-    page_title='이book 어때?',
+    page_title='이Book 어때?',
     layout='wide'
 )
 
-st.header('📚이book 어때?')
+st.header('📚이Book 어때?')
 st.subheader('선택한 책과 유사한 도서 추천')
 st.caption('단어로 입력하셔도 됩니다')
 

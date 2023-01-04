@@ -2,33 +2,35 @@ import streamlit as st
 
 st.set_page_config(
     page_icon='📚',
-    page_title='이book 어때?',
+    page_title='이Book 어때?',
     layout='wide'
 )
 
-st.markdown('#')
-st.markdown('###   매년마다 사람들의 독서량이 줄어들고 있는 이유는 뭘까❓')
-st.markdown('###   넘쳐나는 컨텐츠들 중 자신이 원하는 책들을 바로 찾아내기 어렵기 때문❗')
-st.markdown('###   유저의 🌟취.향.저.격🌟 책을 추천해주자 ')
+st.title('[이Book 어때?] 키워드 기반 도서 추천시스템')
+st.markdown('## Introduction')
+st.markdown('###   매년 사람들의 독서량은 줄어들고만 있습니다.')
+st.markdown('###   컨텐츠의 홍수 속에서 원하는 책을 골라내는 게 어렵다고 느끼신 적 있나요?')
+st.markdown('###   이Book 어때?가 당신의 💘 취.향.저.격. 책을 추천해드릴게요. ')
 st.markdown('#')
 st.image('data/img0.jpg',width=900)
 
 st.markdown('#')
-st.markdown('## 📔 이렇게 사용해보세요')
+st.markdown('## Guide')
 
 
 col1, col2 = st.columns([0.4,0.5])
 with col1:
     st.markdown('### 1️⃣ Keyword Recommend')
-    st.markdown('1.사이드 바에 있는 토픽 중 마음에 드는 토픽을 선택👈하세요')
-    st.markdown('2.장르를 선택하시면 해당 토픽에 해당하는 장르만 보여줍니다!')
-    st.markdown('3.리스트를 열어보고 마음에 콕💘 박히는 책을 눌러보세요')
-    st.markdown('4.스크롤을 내려보면 선택한 책과 유사한 책들이 보일거에요!😍 ')
+    st.markdown('1. 사이드 바의 관심 키워드 중 하나를 선택하세요.')
+    st.markdown('2. 원하는 장르를 선택합니다.')
+    st.markdown('   선택하신 키워드를 가진 해당 장르의 책을 구경할 수 있습니다.')
+    st.markdown('3. 목록 중 마음에 콕 박히는 책 하나를 선택하세요.')
+    st.markdown('4. 스크롤을 내리면, 선택한 책과 유사한 책들이 더 보일 거예요!')
 with col2:
     st.markdown('### 2️⃣ Search Book')
-    st.markdown('1.원하시는 책 제목을 입력🔎해주세요~!')
-    st.markdown('💡꿀팁! 단어만 입력해도 책이 나온답니다💡')
-    st.markdown('2.리스트를 열어봐서 해당 책을 누르면!! 유사한 책들이 나옵니다🍀')
+    st.markdown('1. 원하는 책 제목을 입력하세요.')
+    st.markdown('💡 꿀팁! 단어를 통해 검색할 수도 있어요')
+    st.markdown('2. 목록에서 책을 골라가며 10가지 책 추천을 받아보세요.')
 
 st.markdown('#')
-st.markdown('## 이제 직접 해보세요!')
+st.markdown('## 이제 직접 책을 추천받으러 가볼까요? 🧚')
