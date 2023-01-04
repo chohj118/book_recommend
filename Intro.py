@@ -7,9 +7,9 @@ st.set_page_config(
 )
 
 st.markdown('#')
-st.markdown('### 🧐  매년마다 사람들의 독서량이 줄어들고 있는 이유는 뭘까❓')
-st.markdown('### 🥱 넘쳐나는 컨텐츠들 중 자신이 원하는 책들을 바로 찾아내기 어렵기 때문❗')
-st.markdown('### 👨🏻‍💻 유저의 🌟취.향.저.격🌟 책을 추천해주자 👩🏻‍💻')
+st.markdown('###   매년마다 사람들의 독서량이 줄어들고 있는 이유는 뭘까❓')
+st.markdown('###   넘쳐나는 컨텐츠들 중 자신이 원하는 책들을 바로 찾아내기 어렵기 때문❗')
+st.markdown('###   유저의 🌟취.향.저.격🌟 책을 추천해주자 ')
 st.markdown('#')
 st.image('data/img0.jpg',width=900)
 
@@ -31,4 +31,4 @@ with col2:
     st.markdown('2.리스트를 열어봐서 해당 책을 누르면!! 유사한 책들이 나옵니다🍀')
 
 st.markdown('#')
-st.markdown('## 🎇이제 직접 해보세요!')
+st.markdown('## 이제 직접 해보세요!')
