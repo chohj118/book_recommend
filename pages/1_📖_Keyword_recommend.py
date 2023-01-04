@@ -48,7 +48,7 @@ for v, i in enumerate(category_index):
         
 
 page_name.append('그 외')
-page = st.radio('선택한 장르별로 분류해서 보여드릴게요', page_name,  horizontal=True)
+page = st.radio('선택한 관심 키워드를 장르별로 분류해서 보여드릴게요', page_name,  horizontal=True)
 
 if page == page_name[0]:
     book1 = st.selectbox(f'{page_name[0]}장르의 책을 선택해주세요', category[0])
