@@ -8,7 +8,9 @@
 
 ### 🥱 넘쳐나는 컨텐츠들 중 자신이 원하는 책들을 바로 찾아내기 어렵기 때문❗
 
-## 👨🏻‍💻 유저의 🌟취.향.저.격🌟 책을 추천해주자 👩🏻‍💻
+### 👨🏻‍💻 유저의 🌟취.향.저.격🌟 책을 추천해주자 👩🏻‍💻
+
+# 프로젝트 진행 과정
 
 ### 📖 일단 책의 키워드를 가져와봅시다!
 
@@ -21,6 +23,9 @@
 😎세부적으로 나눠서 ‘장르’와는 구별되는 ‘토픽’을 찾는 것이 목표❗
 
 [ldavis.html](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd8249d0-8c17-45f0-a1e8-aa4dac03531d/ldavis.html)
+
+# 추천시스템 사용법
+[추천시스템](https://chohj118-book-recommend-intro-rt5lz9.streamlit.app/)
 
 ### 📚 책을 추천해볼까요?
 
